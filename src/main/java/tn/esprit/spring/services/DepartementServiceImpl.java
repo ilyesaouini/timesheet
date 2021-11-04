@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.Departement;
-import tn.esprit.spring.entities.User;
 import tn.esprit.spring.repository.DepartementRepository;
 
 
@@ -31,11 +30,11 @@ public class DepartementServiceImpl implements IDepartementService {
 			l.debug("connexion à la DB Ok:");
 			
 			for (Departement departement : departements) {
-				// TODO Log à ajouter pour affiher chaque user dans les logs   
+				l.debug("departement :" + departement.getName());   
 			} 
-			l.info("Out of method retrieveAllUsers with success");
+			l.info("Out of method retrieveAllDepartements with success");
 		}catch (Exception e) {
-			l.error("Out of method retrieveAllUsers with Error :"+ e);
+			l.error("Out of method retrieveAllDepartements with Error :"+ e);
 		}
 
 		return departements;
@@ -44,33 +43,33 @@ public class DepartementServiceImpl implements IDepartementService {
 
 	@Override
 	public Departement addDepartement(Departement d) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode departement:"); 
 		Departement d_saved = departementRepository.save(d); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("Out of Methode adddepartement:");
 		return d_saved; 
 	}
 
 	@Override 
 	public Departement updateDepartement(Departement d) { 
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode updateDepartement:"); 
 		Departement d_saved = departementRepository.save(d); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("Out of Methode updatedepartement:"); 
 		return d_saved; 
 	}
 
 	@Override
 	public void deleteDepartement(String id) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode deletedepartement:"); 
 		departementRepository.deleteById(Long.parseLong(id)); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("Out of Methode deletedepartement:"); 
 	}
 
 	@Override
 	public Departement retrieveDepartement(String id) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode retrieveDepartement:"); 
 		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
 		Departement d =  departementRepository.findById(Long.parseLong(id)).get(); 
-		// TODO Log à ajouter à la fin de la méthode 
+
 		return d; 
 	}
 

@@ -26,9 +26,9 @@ public class UserServiceImpl implements IUserService {
 			l.info("In method retrieveAllUsers :"); 
 			users = (List<User>) userRepository.findAll();  
 			l.debug("connexion à la DB Ok:");
-			//int i =1/0;
+			
 			for (User user : users) {
-				// TODO Log à ajouter pour affiher chaque user dans les logs   
+				l.debug("user :" + user.getLastName());
 			} 
 			l.info("Out of method retrieveAllUsers with success");
 		}catch (Exception e) {
@@ -41,33 +41,33 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User addUser(User u) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode adduser:");
 		User u_saved = userRepository.save(u); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("Out of Methode adduser:");
 		return u_saved; 
 	}
 
 	@Override 
 	public User updateUser(User u) { 
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode updateUser:"); 
 		User u_saved = userRepository.save(u); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("Out of Methode updateUser:");
 		return u_saved; 
 	}
 
 	@Override
 	public void deleteUser(String id) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode deleteUser:");
 		userRepository.deleteById(Long.parseLong(id)); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("Out of Methode deleteUser:");
 	}
 
 	@Override
 	public User retrieveUser(String id) {
-		// TODO Log à ajouter en début de la méthode 
+		l.info("In of Methode retrieveUser:");
 		//User u =  userRepository.findById(Long.parseLong(id)).orElse(null);
 		User u =  userRepository.findById(Long.parseLong(id)).get(); 
-		// TODO Log à ajouter à la fin de la méthode 
+		l.info("Out of Methode retrieveUser:");
 		return u; 
 	}
 
