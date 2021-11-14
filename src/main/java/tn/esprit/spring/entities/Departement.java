@@ -37,7 +37,7 @@ public class Departement implements Serializable {
 	public Departement() {
 		super();
 	}
-	
+	//test2
 	// test commentaire
 	
 	public Departement(String name) {
